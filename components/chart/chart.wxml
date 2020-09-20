@@ -1,0 +1,70 @@
+<!--components/chart.wxml-->
+<!-- <cu-custom bgColor="bg-cyan" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">统计数据</view>
+</cu-custom> -->
+<cu-custom bgColor="{{themeColor}}">
+	<view slot="content" style="color:white;">番茄时钟</view>
+</cu-custom>
+<view class="contain" >
+	<view class="card">
+		<text class="card-title">累计专注</text>
+		<view class="card-content">
+			<view class="card-item">
+				<text class="item-title">次数</text>
+				<text class="item-data">{{totalTimes}}</text>
+			</view>
+			<view class="card-item">
+				<view class="item-title">时长</view>
+				<view class="item-content">
+					<text class="item-data">{{totalTime}}</text>
+					<text class="item-unit">分钟</text>
+				</view>
+			</view>
+			<view class="card-item">
+				<text class="item-title">次均时长</text>
+				<view class="item-content">
+					<text class="item-data">{{perTime}}</text>
+					<text class="item-unit">分钟</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="card">
+		<text class="card-title">当日专注</text>
+		<view class="card-content">
+			<view class="card-item">
+				<text class="item-title">成功次数</text>
+				<text class="item-data">{{todayTimes}}</text>
+			</view>
+				<view class="card-item">
+				<text class="item-title">失败次数</text>
+				<text class="item-data">{{failTimes}}</text>
+			</view>
+			<view class="card-item">
+				<text class="item-title">时长</text>
+				<view class="item-content">
+					<text class="item-data">{{todayTime}}</text>
+					<text class="item-unit">分钟</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="thisDay">
+		<text class="card-title">本日专注时长分布</text>
+		<view class="column_container">
+			<view class="title">
+				<view wx:if="{{!isMainChartDisplay}}" class="back-btn" bindtap="backToMainChart">返回</view>
+				{{chartTitle}}
+			</view>
+			<canvas canvas-id="columnCanvas" bindtouchstart="touchHandler" class="canvas"></canvas>
+		</view>
+	</view>
+
+	<view class="thisMonth">
+		<text class="card-title">本月工作时段分布</text>
+		<view class="scrollLine_container bg-white">
+			<canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchScrollHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+		</view>
+	</view>
+</view>

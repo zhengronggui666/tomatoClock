@@ -1,0 +1,16 @@
+<!--components/stickyNotes/stickyNotes.wxml-->
+<view class="page pureWhite">
+	<cu-custom bgColor="{{themeColor}}">
+		<view slot="content" style="color:white;">番茄时钟</view>
+	</cu-custom>
+	<view class="cu-timeline pureWhite" style="margin-bottom:40px;z-index:-1;">
+		<block wx:for="{{Notes}}" wx:key="index">
+			<view class="{{Notes[index].iconStyle}} text-{{Notes[index].cardStyle}}" bindlongpress="lockNote" data-id="{{index}}">
+				<view class="content bg-{{Notes[index].cardStyle}} shadow-blur animation-{{Notes[index].noteShake?'shake':''}}" bindtap="{{Notes[index].lock?'shakeNote':'showCuNote'}}" data-id="{{index}}">
+					{{Notes[index].value}}
+				</view>
+			</view>
+		</block>
+	</view>
+	<view class="hoverButton" hover-class="plus" bindtap="addInput">New</view>
+</view>

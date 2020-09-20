@@ -1,0 +1,102 @@
+<!--components/me/plan/plan.wxml-->
+
+<view class="page pureWhite" >
+	<cu-custom bgColor="{{themeColor}}" isBack="{{true}}">
+	  <view slot="backText" style="color:white;" bindtap="hidePlan">返回</view>
+		<view slot="content" style="color:white;">今日计划</view>
+	</cu-custom>
+</view>
+
+
+<view>
+	<block wx:for="{{plans}}" wx:key="index">
+		<view class="cu-list menu-avatar comment solids-top">
+			<view class="cu-item">
+				<view class="cu-avatar round" style="background-image:url(https://i.loli.net/2020/06/21/4FO8T67uok3cwfJ.png);"></view>
+				<view class="content">
+					<view>
+						<view class="text-black cuIcon-time">{{plans[index].event}}: {{plans[index].duration}}mins</view>
+						<button class="bg-white cu-btn icon" style="margin-right:0px" bindtap="showModal" data-id="{{index}}" data-target="DialogModal2">
+							<text class="cuIcon-close text-red"></text>
+						</button>
+					</view>
+					<view class="padding bg-white">
+						<view class="cu-progress round striped">
+							<view class="bg-green text-black" style="width:{{loading ? plans[index].percentage+'%' : ''}}"></view>
+						</view>
+					</view>
+					<view class="margin-top-sm flex justify-between">
+						<view class="text-black text-df">{{plans[index].time}}</view>
+						<view class="text-black text-df"> 剩余{{plans[index].remainTime}}mins</view>
+						<view>
+							<text wx:if="{{plans[index].percentage==100}}" class="cuIcon-check text-green">已完成</text>
+							<text wx:else class="text-red margin-left-sm">未完成</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>
+
+<view wx:if="{{!isPlans}}">
+	<image style="margin-left:35%;margin-top:35%;height:100px;width:90px" src="https://i.loli.net/2020/06/22/ZikgKf7RQO8wuUb.png"></image>
+</view>
+<view wx:if="{{!isPlans}}">
+	<text style="font-size:medium;color:grey;margin-left:37%">今日无计划</text>
+</view>
+
+<view class="hoverButton" hover-class="plus" bindtap="showModal" data-target="DialogModal1">New</view>
+
+<view class=" cu-modal {{modalName=='DialogModal1'?'show':''}}">
+	<view class="bg-white cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">
+				<text class="">今日计划</text>
+			</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="container">
+			<view class="layout_horizontal">
+				<view style="flex:1;margin-top:24%">今天计划</view>
+				<view style="flex:1">
+					<picker-view class="bg-white flex-item demo-text-1" style="margin-left:100px" indicator-style="height: 30%;" style="width: 100%; height: 100%" value="{{value}}" bindchange="bindChange">
+						<picker-view-column>
+							<view wx:for="{{mins}}" wx:key="min" style="line-height: 50px; text-align: center;" style="color:black">{{item}}min(s)</view>
+						</picker-view-column>
+					</picker-view>
+				</view>
+				<view style="margin-top:24%">
+					<view style="flex:1">
+						<input class="weui-input" placeholder="请输入计划(至多5字)" maxlength="5" bindinput="bindKeyInput" />
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="cu-bar bg-white justify-end">
+			<view class="action padding justify-between align-center">
+				<button class="round line-blue text-blue margin-right" size="mini" bindtap="hideModal">取消</button>
+				<button class="round bg-blue" size="mini" bindtap="addPlan">确定</button>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">
+				<text class="">确定要删除此计划吗？</text>
+			</view>
+		</view>
+		<view class="cu-bar bg-white justify-end">
+			<view class="action">
+				<button class="round line-blue text-blue margin-right" size="mini" bindtap="hideModal">取消</button>
+				<button class=" bg-blue" size="mini" bindtap="deletePlan">确定</button>
+			</view>
+		</view>
+	</view>
+</view>

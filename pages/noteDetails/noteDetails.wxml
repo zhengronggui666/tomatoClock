@@ -1,0 +1,13 @@
+<!--pages/noteDetails.wxml-->
+<view class="page pureWhite">
+	<cu-custom bgColor="{{themeColor}}" isBack="{{true}}">
+		<view slot="backText" style="color:white;">返回</view>
+		<view slot="content" style="color:white;">便签详情</view>
+	</cu-custom>
+	<view class="paper">
+		<view class="noticeStyle">
+			<view class="cu-item cuIcon-delete text-blue" bindtap="deleteNote" style="padding-right:10rpx"></view>字数：{{words}}/{{limit}}
+		</view>
+		<textarea class="textStyle" maxlength="{{limit}}" value="{{Notes[currentLoc].value}}" bindblur="storeNote" bindconfirm="storeNote" bindinput="calWords"></textarea>
+	</view>
+</view>

@@ -1,0 +1,19 @@
+{
+  "name": "tomatoclock",
+  "version": "1.0.0",
+  "description": "本项目用于互联网38组的期末大作业，主要实现番茄时钟、事务便签、效率统计等功能。",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.weixin.qq.com/wx_wxe6c9c49c572475fd/tomatoClock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas-nest.js": "^2.0.4",
+    "weui-miniprogram": "^1.0.3"
+  }
+}

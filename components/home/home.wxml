@@ -1,0 +1,105 @@
+<!-- <view class="bg-gradual-blue page"> -->
+<!-- <cu-custom wx:if="{{!isRuning}}">
+		<view slot="content" style="color:white;">番茄时钟</view>
+</cu-custom> -->
+<view class="container timer {{isRuning ? 'timer--runing': ''}} {{themeColor}}">
+	<view wx:if="{{isRuning}}" class="back_image">
+		<image src="{{paper.url}}" mode="heightFix" wx:if="{{paper.type=='image'}}" class="back_img"></image>
+		<video src="{{paper.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{paper.type=='video'}}" class="back_img" show-center-play-btn="{{false}}"></video>
+	</view>
+	<view wx:if="{{isRuning}}" class="motto"><text>{{motto}}</text></view>
+	<view wx:if="{{isRuning}}" class="event"><text>{{event}}</text></view>
+	<view class="timer_main">
+		<view class="timer_time-wrap">
+			<view class="timer_progress_mask"></view>
+			<view class="timer_progress timer_left">
+				<view class="timer_circle timer_circle--left" style="transform: rotate({{leftDeg}}deg);"></view>
+			</view>
+			<view class="timer_progress timer_right">
+				<view class="timer_circle timer_circle--right" style="transform: rotate({{rightDeg}}deg);"></view>
+			</view>
+			<picker bindchange="bindPickerChange" value="{{4}}" range="{{array}}" class="picker" disabled="{{isRuning}}" header-text="选择时间(分钟)">
+				<text class="timer_time">{{remainTimeText}}</text>
+			</picker>
+
+		</view>
+
+	</view>
+	<view class="btview">
+		<!-- class="round line-red shadow startbt" -->
+		<navigator url="#" class="startbt bg-white" hover-class="none" bindtap="showModal" data-target="affairModal">开始</navigator>
+	</view>
+
+	<view class="cu-modal {{modalName=='affairModal'&&!emptyPlan?'show':''}}">
+		<view class="cu-dialog" style="width:500rpx;">
+			<view class="cu-bar bg-white justify-end" style="border-bottom: 1rpx solid #ddd;">
+				<view class="content">请选择事件</view>
+				<view class="action" bindtap="hideModal">
+					<text class="cuIcon-close text-red"></text>
+				</view>
+			</view>
+			<view class="cu-list menu text-left">
+				<view class="cu-item" wx:for="{{plans}}" wx:key="index" bindtap="selectEvent" data-index="{{index}}">
+					<label class="flex justify-between align-center flex-sub" style="color:black;">
+						{{plans[index].event}}
+					</label>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="cu-modal {{modalName=='affairCModal'&&!emptyPlan?'show':''}}">
+		<view class="cu-dialog" style="width:500rpx;">
+			<view class="cu-bar bg-white justify-end" style="border-bottom: 1rpx solid #ddd;">
+				<view class="content">更换事件</view>
+				<view class="action" bindtap="hideModal">
+					<text class="cuIcon-close text-red"></text>
+				</view>
+			</view>
+			<view class="cu-list menu text-left">
+				<view class="cu-item" wx:for="{{plans}}" wx:key="index" bindtap="changeEvent" data-index="{{index}}">
+					<label class="flex justify-between align-center flex-sub" style="color:black;">
+						{{plans[index].event}}
+					</label>
+				</view>
+			</view>
+			<view class="bg-white modal_foot">
+					注: 只可更换一次,且时长归该事件所有
+			</view>
+		</view>
+	</view>
+	<view wx:if="{{isRuning}}" class="icons">
+		<navigator url="#">
+			<image src="/images/light.png" class="img {{screenOn?'screenOn':'screenOff'}}" mode="scaleToFill" bindtap="setScreen"></image>
+		</navigator>
+		<navigator url="#">
+			<image src="/images/music.png" class="img" mode="aspectFit" bindtap="showModal" data-target="musicModal"></image>
+		</navigator>
+		<navigator url="#" bindtap="cancelTimer">
+			<image src="/images/stop.png" class="img" mode="aspectFit"></image>
+		</navigator>
+		<navigator url="#" bindtap="showModal" data-target="affairCModal">
+			<image src="/images/affair.png" class="img {{eventchange?'screenOff':''}}" mode="aspectFit"></image>
+		</navigator>
+		<navigator url="#" bindtap="mottoChange">
+			<image src="/images/motto.png" class="img" mode="aspectFit"></image>
+		</navigator>
+	</view>
+</view>
+<view class="cu-modal {{modalName=='musicModal'?'show':''}}">
+	<view class="cu-dialog dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">选择音乐</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="musicContent">
+			<block wx:for="{{musicItems}}" wx:key="index">
+				<view bindtap="musicSelect" class="musicbt bg-{{item.color}} light shadow" data-id="{{index}}">{{item.name}}</view>
+			</block>
+		</view>
+	</view>
+</view>
+
+
+<!-- </view> -->

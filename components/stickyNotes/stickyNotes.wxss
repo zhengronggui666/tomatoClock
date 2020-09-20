@@ -1,0 +1,104 @@
+/* components/stickyNotes/stickyNotes.wxss */
+@import '/colorui/icon.wxss';
+@import '/colorui/main.wxss';
+@import '/colorui/animation.wxss';
+@import '/colorui/components/cu-custom.wxss';
+
+.trans {
+  background-color: transparent;
+  overflow: inherit;
+}
+
+.pureWhite{
+  background-color: #ffffff;
+  overflow: inherit;
+}
+
+.pureWhite{
+  background-color: #ffffff;
+  overflow: inherit;
+}
+
+.pureWhite{
+  background-color: #ffffff;
+  overflow: inherit;
+}
+
+.hoverButton {
+  font-size: 14px;
+  word-break: break-all;
+  box-shadow: 0 8px 17px 0 rgba(237, 202, 202, 0.2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  position: fixed;
+  overflow: visible;
+  z-index: 50;
+  width: 56px;
+  line-height: 54px;
+  text-align: center;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, .05);
+  transform-origin: center bottom;
+  right: 50rpx;
+  bottom: 150rpx;
+  color: #ffffff;
+  background: #24A364;
+}
+
+.plus {
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+  transform: scale(1.02);
+}
+
+.stickyDetail {
+  z-index: 60;
+}
+
+.hiddenIt {
+  display: none;
+}
+
+.paper {
+  position: relative;
+  width: 95%;
+  height: 78%;
+  background-image: -webkit-repeating-linear-gradient(#f9f9f9, #f9f9f9 70rpx, rgb(204, 204, 204) 74rpx);
+  background-image: repeating-linear-gradient(#f9f9f9, #f9f9f9 70rpx, rgb(204, 204, 204) 74rpx);
+  border: 1px solid #eee;
+  float: left;
+  margin: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.27), 0 0 20px rgba(0, 0, 0, .1) inset;
+}
+
+.paper::after,
+.paper::before {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  width: 100px;
+  height: 1px;
+  z-index: -1;
+  box-shadow: 0 2px 12px 5px rgba(0, 0, 0, .3);
+}
+
+.paper::after {
+  left: 4px;
+  transform: rotate(-6deg);
+}
+
+.paper::before {
+  right: 4px;
+  transform: rotate(6deg);
+}
+
+.textStyle{
+  height: 100%;
+  width: 100%;
+  padding-left: 24rpx;
+  padding-right: 20rpx;
+  padding-top: 4rpx;
+  font-size: 44rpx;
+  line-height: 174%;
+  color:rgb(116, 116, 116);
+}

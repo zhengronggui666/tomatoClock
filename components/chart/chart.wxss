@@ -1,0 +1,163 @@
+/* components/chart.wxss */
+.card {
+  background-color: white;
+  height: 18%;
+  border-radius: 10px;
+  width: 90%;
+  margin-top: 20px;
+  color: olive;
+  text-align: justify;
+  line-height: normal;
+ 
+  
+}
+.card-title{
+  display: block;
+  margin-top: 3px;
+  margin-left: 8px;
+  font-size: 17px;
+  font-weight: bolder;
+}
+.card-content{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3px;
+}
+.card-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+  color: olive;
+  text-align:center;
+  line-height: normal;
+  font-weight: normal;
+}
+.item-title{
+  font-size: 13px;
+}
+.item-content{
+  display: inline-block;
+}
+.item-data{
+  font-size: 20px;
+}
+.item-unit{
+  font-size: 12px;
+  position: relative;
+  bottom: 0px;
+}
+/* .today {
+  background-color: white;
+  height: 15vh;
+  border-radius: 10px;
+  width: 90%;
+margin-top: 20px;
+  color: olive;
+  text-align: justify;
+  line-height: normal;
+  font-weight: bold;
+  font-size: large;
+}
+
+.times {
+  display: inline-block;
+  width: 33%;
+  margin-top: -10px;
+  color: olive;
+  text-align: center;
+  line-height: normal;
+  font-weight: normal;
+  font-size: small;
+}
+
+.hours {
+  display: inline-block;
+  width: 33%;
+  margin-top: -10px;
+  color: olive;
+  text-align: center;
+  line-height: normal;
+  font-weight: normal;
+  font-size: small;
+} */
+
+.thisDay {
+  background-color: white;
+  height: 60%;
+  border-radius: 10px;
+  width: 90%;
+  margin-top: 20px;
+  color: olive;
+  text-align: justify;
+  line-height: normal;
+  font-weight: bold;
+  font-size: large;
+  
+}
+
+.thisMonth {
+  background-color: white;
+  height: 50%;
+  border-radius: 10px;
+  width: 90%;
+  margin-top: 20px;
+  color: olive;
+  text-align: justify;
+  line-height: normal;
+  font-weight: bold;
+  font-size: large;
+  overflow: hidden;
+}
+
+.contain {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin-bottom: 60px;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  overflow: inherit;
+}
+
+/* .column_container {
+  width: 100%;
+  height: 20vh;
+
+} */
+
+.title {
+  color: black;
+  text-align: center;
+  position: relative;
+  margin-top: 0rpx;
+  margin-bottom: 0rpx;
+  font-size: x-small;
+  font-weight: 100;
+}
+
+.back-btn {
+  position: absolute;
+  left: 20rpx;
+  top: 0;
+}
+
+.canvas {
+  display: block;
+  height: 25%;
+  transform: scale(0.8);
+  position: fixed;
+  left: 0rpx;
+}
+
+/* .scrollLine_container{
+  overflow: inherit;
+} */
+
+.back-btn {
+  background-color: olive;
+  border-radius: 3px;
+  color: white;
+}

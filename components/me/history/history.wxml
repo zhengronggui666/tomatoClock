@@ -1,0 +1,29 @@
+<!--components/me/history/history.wxml-->
+<view>
+  <view class="page pureWhite">
+	  <cu-custom bgColor="{{themeColor}}" isBack="{{true}}">
+	    <view slot="backText" style="color:white;" bindtap="hideLogs">返回</view>
+	  	<view slot="content" style="color:white;">番茄历史</view>
+	  </cu-custom>
+  </view>
+  <view wx:if="{{isLogs}}">
+    <view class="cu-timeline">
+    	<block wx:for="{{formatLogs}}" wx:key="index">
+      <view class="cu-time" wx:if="{{(index==0)||formatLogs[index].big != formatLogs[index-1].big}}">{{formatLogs[index].big}}</view>
+	    	<view class="cu-item cur cuIcon-time" data-id="{{index}}">
+		  	  <view class="content shadow-blur bg-{{formatLogs[index].cardColor}}"data-id="{{index}}">
+			     	<text>{{formatLogs[index].startTime}} ~ {{formatLogs[index].endTime}}\n</text>
+            <text>{{formatLogs[index].sign}}</text>
+		    	</view>
+        </view>
+      </block>
+    </view>
+  </view> 
+</view>
+<view wx:if="{{!isLogs}}">
+  <image style="margin-left:35%;margin-top:35%;height:100px;width:90px" src="https://i.loli.net/2020/06/22/hJidpjglyZ6t7OD.png"></image>
+</view>
+<view  wx:if="{{!isLogs}}">
+  <text style="font-size:medium;color:grey;margin-left:39%">暂无记录</text>
+</view>
+

@@ -1,0 +1,88 @@
+<!--components/me/me.wxml-->
+
+<view class="scroll {{themeColor}}">
+<cu-custom bgColor="{{themeColor}}">
+	<view slot="content" style="color:white;z-index:1000;">番茄时钟</view>
+</cu-custom>
+  <view class="UCenter-bg">
+ 
+		 <button wx:if="{{!hasUserInfo && canIUse}}" size="mini" style="font-weight:normal;border:1px white solid;color:white;" open-type="getUserInfo" bindgetuserinfo="getUserInfo" plain>登录</button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="cu-avatar round png" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    </block>
+    <view class="text-xl margin-top-sm">
+      <text>{{userInfo.nickName?userInfo.nickName:'请先登录'}}</text>
+    </view>
+    <view class="margin-top-sm">
+      <text>{{userInfo.city?userInfo.city:'未知'}}</text>
+    </view>
+    <image src="cloud://tomato-lb031.746f-tomato-lb031-1302024354/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl cardlist shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/components/me/poster/poster" hover-class="none">
+        <text class="cuIcon-pic text-orange"></text>
+        <text class="text-grey">海报设置</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content"  bindtap="changeTheme" hover-class="none">
+        <text class="cuIcon-colorlens text-cyan"></text>
+        <text class="text-grey">选择主题色</text>
+      </navigator>
+    </view>
+		<view class="cu-item arrow">
+      <navigator class="content" url="/components/me/plan/plan" hover-class="none">
+        <text class="cuIcon-activity text-pink"></text>
+        <text class="text-grey">未来计划表</text>
+      </navigator>
+    </view>
+    
+    <view class="cu-item arrow">
+      <navigator class="content" url="/components/me/history/history" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">历史记录</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">赞赏支持</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback" style="font-weight:normal;">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>  
+		<view class="cu-item arrow">
+      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">GitHub</text>
+      </view>
+    </view>
+		<view class="cu-item arrow">
+      <navigator class="content" url="/components/me/about/about" hover-class="none">
+        <image src="/images/red_tomato.png" class="png" mode="aspectFit"></image>
+        <text class="text-grey">关于番茄时钟</text>
+      </navigator>
+    </view>
+  </view>
+  <!-- <view class="cu-tabbar-height"></view> -->
+</view>
+<view class="cu-modal {{themeModal?'show':''}}">
+	<view class="cu-dialog dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">选择主题色</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="themeContent">
+			<view wx:for="{{colorList}}" wx:key="index" class="btContent">
+				<view bindtap="themeSelect" class="themebt {{item.name}}" data-id="{{index}}"></view>
+			</view>
+		</view>
+	</view>
+</view>

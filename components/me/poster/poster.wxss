@@ -1,0 +1,40 @@
+/* components/me/poster/poster.wxss */
+.tower-swiper .tower-item {
+  width: 600rpx;
+  height: 1000rpx;
+  transform: scale(calc(1 - var(--maxZIndex) / 10 + var(--index) / 10));
+  margin-left: calc(var(--left) * 100rpx - 300rpx);
+  z-index: var(--index);
+  overflow: hidden;
+}
+.tower-swiper{
+  height: 1100rpx;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.page{
+  overflow: hidden;
+  height: 100%;
+}
+/* .swiper-item{
+  border-radius: 5rpx;
+
+} */
+.img{
+  border-radius: 15rpx;
+}
+.btn{
+  border-radius: 20px;
+  width: 50px;
+  margin-top: 20px;
+}
+.container{
+  opacity: 0;
+}
+.active{
+  opacity: 1;
+
+}
+
+

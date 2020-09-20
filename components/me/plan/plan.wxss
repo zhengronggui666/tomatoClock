@@ -1,0 +1,49 @@
+/* components/me/plan/plan.wxss */
+.hoverButton {
+  font-size: 14px;
+  word-break: break-all;
+  box-shadow: 0 8px 17px 0 rgba(237, 202, 202, 0.2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+  margin-bottom: 15%;
+  padding: 0;
+  box-sizing: content-box;
+  position: fixed;
+  overflow: visible;
+  z-index: 50;
+  width: 56px;
+  line-height: 54px;
+  text-align: center;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, .05);
+  transform-origin: center bottom;
+  right: 50rpx;
+  bottom: 50rpx;
+  color: #ffffff;
+  background: #24A364;
+}
+
+.plus {
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+  transform: scale(1.02);
+}
+
+
+.layout_horizontal{
+  height: 200px;
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+}
+
+.title{
+  font-size: large;
+  font-weight: bold;
+  color: rgb(64, 97, 233);
+}
+
+.sm{
+  height:25px;
+  width:5px;
+  text-align: center;
+  font-size: medium;
+  font-weight: 100;
+}

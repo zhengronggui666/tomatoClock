@@ -1,0 +1,14 @@
+<!--components/me/about/about.wxml-->
+<cu-custom bgColor="{{themeColor}}" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">关于</view></cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>关于番茄时钟</view>
+  <view class='text-content'>
+    <view>Hi! 时间管理者们~欢迎使用时间管理小程序！</view>
+    <view class='margin-top-sm'>长时间的使用手机会引起记忆力衰退、认知能力下降。不仅如此，手机还会让时间管理者们分心，使时间管理者们的工作效率受到影响。</view>
+    <view class='margin-top-sm'>该项目是不醒人工作室开发的旨在帮助大家暂时放下手机，专心于自己计划的效率的小程序。激励自己，抵御来自手机的诱惑。成为时间管理大师！
+</view>
+    <view class='margin-top-sm'>项目组成员：任一丁 王博 薛人玮 郑镕圭 邱安琪</view>
+    <view class='margin-top-sm'>该项目UI基于ColorUi开发      原作者：文晓港</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+  </view>
+</view>

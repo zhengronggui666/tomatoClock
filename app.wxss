@@ -1,0 +1,36 @@
+@import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
+/* @import "/components/home/home.wxss"; */
+/**app.wxss**/
+/* .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}  */
+canvas {
+  box-sizing: border-box;
+}
+page {
+  height: 100%;
+}
+
+.hide {
+  display: none!important;
+}
+
+.container,
+input,
+button {
+  font: 14px "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+}
+
+/* .container {
+  height: 100vh;
+  /* background-color: #f5f5f5; */
+/* }  */
+

@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="page {{themeColor}}" bindtap="setScreenOn">
+	<home wx:if="{{PageCur=='home'}}" bind:stateChange="stateChange" ScreenBrightness="{{ScreenBrightness}}" />
+	<sticky-notes wx:if="{{PageCur=='stickyNotes'}}" id="note"/>
+	<chart wx:if="{{PageCur=='chart'}}"/>
+	<me wx:if="{{PageCur=='me'}}" bind:themeChange="themeChange" />
+</view>
+<cover-view class="cu-bar tabbar shadow foot bg-white" wx:if="{{!isRunning}}">
+	<cover-view class="action" bindtap="NavChange" data-cur="home">
+		<cover-view class='cuIcon-cu-image'>
+			<cover-image class='image' src="/images/home{{PageCur=='home'?'_on':''}}.png"></cover-image>
+		</cover-view>
+		<cover-view class="text {{PageCur=='home'?'text-green':'text-black'}}">主页</cover-view>
+	</cover-view>
+	<cover-view class="action" bindtap="NavChange" data-cur="stickyNotes">
+		<cover-view class='cuIcon-cu-image'>
+			<cover-image class='image' src="/images/stickyNotes{{PageCur=='stickyNotes'?'_on':''}}.png"></cover-image>
+		</cover-view>
+		<cover-view class="text {{PageCur=='stickyNotes'?'text-green':'text-black'}}">便签</cover-view>
+	</cover-view>
+	<cover-view class="action" bindtap="NavChange" data-cur="chart">
+		<cover-view class='cuIcon-cu-image'>
+			<cover-image class='image' src="/images/chart{{PageCur=='chart'?'_on':''}}.png"></cover-image>
+		</cover-view>
+		<cover-view class="text {{PageCur=='chart'?'text-green':'text-black'}}">统计</cover-view>
+	</cover-view>
+	<cover-view class="action" bindtap="NavChange" data-cur="me">
+		<cover-view class='cuIcon-cu-image'>
+			<cover-image class='image' src="/images/me{{PageCur=='me'?'_on':''}}.png"></cover-image>
+		</cover-view>
+		<cover-view class="text {{PageCur=='me'?'text-green':'text-black'}}">我的</cover-view>
+	</cover-view>
+</cover-view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "home":"/components/home/home",
+    "sticky-notes":"/components/stickyNotes/stickyNotes",
+    "cu-custom": "/colorui/components/cu-custom",
+    "chart":"/components/chart/chart",
+    "me":"/components/me/me/me"
+  }
+}

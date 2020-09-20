@@ -1,0 +1,287 @@
+/* components/home/home.wxss */
+/* @import "/colorui/main.wxss";
+@import "/colorui/icon.wxss"; */
+/* @font-face{
+  font-family: SimKai;
+  src: url("https://zhengronggui666.github.io/kaishu.ttf");
+} */
+
+
+.container {
+  display: flex;
+  width: 100%;
+  /* height: 100%; */
+  flex-direction: column;
+  overflow: hidden;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* border-top:1px solid black; */
+ }
+
+.timer_main {
+  position: absolute;
+ 
+  text-align: center;
+  
+  top:20%;
+  transition: all .5s;
+  z-index: 1;
+  
+}
+.motto{
+  font-family: SimKai;
+  position: fixed;
+  height: 100px;
+  background-color: transparent;
+  animation: moveMotto 3s;
+ 
+  top:60px;
+  left: 40px;
+  line-height: 2em;
+  font-size: 20px;
+  z-index: 1000;
+}
+.timer_time-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  transition: all .3s;
+}
+
+
+
+.timer_progress_mask {
+  position: absolute;
+  width: 198px;
+  height: 198px;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  right: 1px;
+  border: 4px solid #fff;
+  opacity: .2;
+  border-radius: 50%;
+}
+.timer_progress {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 200px;
+  overflow: hidden;
+  transition: all .3s;
+} 
+.timer_left{
+  left: 0;
+}
+.timer_right{
+  right: 0;
+}
+
+
+.timer_circle {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 200px;
+  border: 6px solid transparent;
+  border-radius: 50%;
+  transition: all .3s;
+}
+
+.timer_circle--left {
+  left: 0;
+  border-left: 6px solid #fff;
+  border-bottom: 6px solid  #fff;
+  transform: rotate(45deg);
+}
+
+.timer_circle--right {
+  right: 0;
+  border-right: 6px solid #fff;
+  border-bottom: 6px solid #fff;
+  transform: rotate(-45deg);
+}
+.btview{
+
+  position: absolute;
+  height: 75px;
+  width: 75px;
+  top:80%;
+}
+
+.startbt{
+  height: 75px;
+  width: 75px;
+  line-height: 75px;
+  box-sizing: border-box;
+  /* border: 1px solid currentColor; */
+  text-align: center;
+  border-radius: 50%;
+  font-size:15px;
+}
+
+.startbt:active{
+  transform: translate(3rpx,3rpx);
+}
+/* .timer_time-right {} */
+.picker{
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  top:0;
+  left: 0;
+  text-align: center;
+  line-height: 200px;
+}
+.timer_time {
+  display: block;
+
+  font-size: 30px;
+  color: #fff;
+  font-weight:900 ;
+  transition: font-size .5s;
+}
+
+
+
+/* .timer_done{
+  width: 64px;
+  height: 64px;
+} */
+
+
+/*runing style*/
+.timer--runing .container {
+  position: relative;
+  z-index: -1;
+}
+.back_image{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+.back_image .back_img{
+  min-height: 100%;
+  min-width: 100%;
+}
+.timer--runing .timer_main {
+
+  animation:moveTimer  3s;
+  /* margin-top: 100px; */
+  /* transform: translateY(200px);
+  transition: all 3s; */
+  /* margin-top: 230px; */
+  top:40%;
+  filter: brightness(1);
+  /* margin-top: -100px; */
+}
+.timer--runing .event{
+  position: absolute;
+  text-align: center;
+  top:70%;
+  animation: showImage 5s;
+  font-size: 20px;
+}
+.timer--runing .timer_progress{
+  width: 100px;
+  height: 200px;
+}
+
+.timer--runing .btview{
+  display: none;
+}
+.timer--runing .timer_time {
+  font-size: 50px;
+}
+.icons{
+  position: fixed;
+  bottom: 50px;
+  height: 32px;
+  width: 70%;
+  /* background-color: white; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  animation: showImage 5s;
+ }
+.icons .img{
+  height: 20px;
+  width: 20px;
+ /* border:1px solid white; */
+
+}
+.screenOff{
+  opacity: 0.5;
+}
+.screenOn{
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+
+@keyframes moveMotto{
+  0%{
+      top:0;
+      left:0;
+  }
+  100%{
+      top:60px;
+      left: 40px;
+  }
+}
+@keyframes moveTimer{
+  0%{
+    top:20%;
+  }
+
+  100%{
+    top:40%;
+    /* margin-top: -100px; */
+  }
+}
+@keyframes showImage{
+  0%{
+   opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.colorbt{
+  position: absolute;
+  height: 30px;
+  width: 50px;
+  top: 70px;
+  right: 20px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 15px;
+}
+.dialog{
+  width: 270px;
+}
+.musicContent{
+  height: 120px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.musicbt{
+  height: 60px;
+  width: 90px;
+  text-align: center;
+  line-height: 60px;
+  font-size:18px;
+}
+.modal_foot{
+  
+  border-top: 1rpx solid #ddd;
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+  text-align: start;
+}

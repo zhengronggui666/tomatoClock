@@ -1,0 +1,60 @@
+@import '../../colorui/icon.wxss';
+@import '../../colorui/main.wxss';
+@import '../../colorui/animation.wxss';
+@import '../../colorui/components/cu-custom.wxss';
+@import '../index/index.wxss';
+
+.paper {
+  position: relative;
+  width: 95%;
+  height: 78%;
+  background: #fff;
+  border: 1px solid #eee;
+  float: left;
+  margin: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.27), 0 0 20px rgba(0, 0, 0, .1) inset;
+}
+
+.paper::after,
+.paper::before {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  width: 100px;
+  height: 1px;
+  z-index: -1;
+  box-shadow: 0 2px 12px 5px rgba(0, 0, 0, .3);
+}
+
+.paper::after {
+  left: 4px;
+  transform: rotate(-6deg);
+}
+
+.paper::before {
+  right: 4px;
+  transform: rotate(6deg);
+}
+
+.textStyle{
+  height: 90%;
+  width: 100%;
+  padding-left: 24rpx;
+  padding-right: 20rpx;
+  padding-top: 4rpx;
+  font-size: 44rpx;
+  line-height: 174%;
+  color:rgb(116, 116, 116);
+  resize: none;
+  max-lines: 12;
+}
+
+.noticeStyle{
+  padding-left: 440rpx;
+  padding-right: 20rpx;
+  font-size: 32rpx;
+  padding-top: 24rpx;
+  color:rgb(3, 149, 194);
+  display: flex;
+  border-bottom: rgb(3, 149, 194) 1px solid;
+}
